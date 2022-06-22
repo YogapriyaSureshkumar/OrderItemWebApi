@@ -29,15 +29,11 @@ namespace OrderItemWebApi.Controllers
                 {
 
                     string jsonData = result.Content.ReadAsStringAsync().Result;
-
-
                     Items = JsonConvert.DeserializeObject<List<Cart>>(jsonData);
                     Cart c = Items.SingleOrDefault(item => item.Id == id);
 
                     c.MenuItemId = 1;
                     c.UserId = 1;
-
-
                     return Ok(c);
 
                 }
